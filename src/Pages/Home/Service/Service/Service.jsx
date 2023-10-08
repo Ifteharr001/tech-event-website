@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 const Service = ({ service }) => {
   const { title, img, description, price, id } = service;
   return (
@@ -14,12 +15,12 @@ const Service = ({ service }) => {
           <p className="text-gray-300">{description}</p>
           <span className="text-gray-300">Price: {price}</span>
           <div className="card-actions justify-end">
-            <button
-              to={`/service/${id}`}
+            <Link
+              to={`/details/${id}`}
               className="btn w-full text-center bg-[#482121] border-none rounded-none text-[#F0F0F0]"
             >
               See Details
-            </button>
+            </Link>
           </div>
         </div>
       </div>
