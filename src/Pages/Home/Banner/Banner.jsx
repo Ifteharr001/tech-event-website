@@ -22,7 +22,7 @@ const Banner = () => {
                 excitement! Explore the latest <br /> in cutting-edge technology, from
                 virtual reality wonders to AI-powered gadgets.
               </p>
-              <button className="btn btn-primary">Get Started</button>
+              <button className="btn rounded-none border-none bg-[#482121] text-[#F0F0F0]">About Us</button>
             </div>
           </div>
           {/* banner slider */}

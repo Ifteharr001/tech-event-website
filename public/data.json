@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Tech Expo 2023",
+    "description": "Explore the latest technological innovations and breakthroughs at Tech Expo 2023. Engage with industry experts, attend hands-on demos, and witness the future of technology.",
+    "img": "https://i.ibb.co/1XhxDVq/pexels-ketut-subiyanto-4474033.jpg",
+    "price": 25.99
+  },
+  {
+    "id": 2,
+    "title": "Gamer's Paradise Convention",
+    "description": "Join fellow gamers at the ultimate gaming experience! Gamer's Paradise Convention features exclusive game previews, esports tournaments, and meet-and-greet sessions with top game developers.",
+    "img": "https://i.ibb.co/x2BLTgx/pexels-cottonbro-studio-4836371.jpg",
+    "price": 30.99
+  },
+  {
+    "id": 3,
+    "title": "VR Tech Summit",
+    "description": "Immerse yourself in the world of virtual reality at the VR Tech Summit. Discover cutting-edge VR technologies, attend workshops, and experience mind-blowing VR simulations.",
+    "img": "https://i.ibb.co/N3978Wv/pexels-darlene-alderson-4389743.jpg",
+    "price": 22.99
+  },
+  {
+    "id": 4,
+    "title": "E-sports Championship 2023",
+    "description": "Witness the thrill of competitive gaming at the E-sports Championship 2023. Top esports teams will battle it out for glory and cash prizes in intense gaming competitions.",
+    "img": "https://i.ibb.co/jbSLr1L/pexels-luis-henrique-4219812.jpg",
+    "price": 35.99
+  },
+  {
+    "id": 5,
+    "title": "Smart Devices Expo",
+    "description": "Stay ahead in the world of smart technology. The Smart Devices Expo showcases the latest in smart home devices, wearables, and connected gadgets that are shaping the future.",
+    "img": "https://i.ibb.co/5kcznhS/pexels-evg-kowalievska-1174746.jpg",
+    "price": 18.99
+  },
+  {
+    "id": 6,
+    "title": "Game Developers",
+    "description": "Connect with game developers, designers, and industry professionals Developers Conference. Learn about the latest trends, share ideas, and network with key players in the gaming industry.",
+    "img": "https://i.ibb.co/Tks1jtg/pexels-fauxels-3184339.jpg",
+    "price": 40.99
+  }
+]
