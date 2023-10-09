@@ -1,9 +1,10 @@
 
-const DetailsCard = ({detailData}) => {
-    const {title, description} = detailData;
+
+const DetailsCard = () => {
+  
   return (
     <div>
-        {title}
+        
     </div>
   );
 };

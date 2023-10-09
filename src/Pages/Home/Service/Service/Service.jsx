@@ -12,8 +12,8 @@ const Service = ({ service }) => {
           <h2 className="card-title font-bold  text-2xl text-[#F0F0F0]">
             {title}
           </h2>
-          <p className="text-gray-300">{description}</p>
-          <span className="text-gray-300">Price: {price}</span>
+          <p className="text-gray-300">{description.slice(0, 120)}....</p>
+          <span className="text-gray-300 font-bold">Price: {price}</span>
           <div className="card-actions justify-end">
             <Link
               to={`/details/${id}`}
@@ -31,5 +31,5 @@ const Service = ({ service }) => {
 export default Service;
 
 Service.propTypes = {
-  service: PropTypes.array,
+  service: PropTypes.object,
 };
