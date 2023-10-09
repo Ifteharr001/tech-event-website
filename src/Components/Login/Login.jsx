@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Hook/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
     const {googleSignIn, logIn } = useContext(AuthContext)
-
+    const location = useLocation();
+    const navigate = useNavigate();
 
     // google login
     const handleGoogleLogin = () => {
@@ -23,8 +24,13 @@ const Login = () => {
       const password = form.get('password');
       console.log(email, password)
       logIn(email, password)
-      .then()
-      .catch()
+      .then(result => {
+        console.log(result.user)
+        navigate(location?.state ? location.state : "/")
+      })
+      .catch(error =>{
+        console.log(error)
+      })
     }
 
     return (
@@ -35,8 +41,8 @@ const Login = () => {
 
         <div>
           <div className=" min-h-screen ">
-            <div className="hero-content">
-              <div className="card md:w-3/4 lg:w-1/3 flex-shrink-0 w-full shadow-2xl bg-[#219C90] rounded-lg">
+            <div className="hero-content mx-auto">
+              <div className="card md:w-3/4 lg:w-1/3 mx-auto flex-shrink-0 w-full shadow-2xl bg-[#219C90] rounded-lg">
                 <form onSubmit={handleLogin} className="card-body">
                   <div className="form-control text-white">
                     <label className="label text-white">
