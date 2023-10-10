@@ -33,6 +33,16 @@ const Navbar = () => {
           About Us
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/ourTeam"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "text-[#3F2305]" : ""
+          }
+        >
+          Our Team
+        </NavLink>
+      </li>
     </>
   );
   return (

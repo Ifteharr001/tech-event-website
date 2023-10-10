@@ -13,7 +13,7 @@ const AboutUs = () => {
               className="max-w-sm rounded-lg shadow-2xl mr-4"
             />
             <div>
-              <h1 className="text-5xl font-bold text-[#066163]">
+              <h1 className="text-4xl font-bold text-[#066163]">
                 The Future of Gaming Tech
               </h1>
               <p className="py-6">

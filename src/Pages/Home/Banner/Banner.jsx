@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Banner = () => {
@@ -22,7 +23,9 @@ const Banner = () => {
                 excitement! Explore the latest <br /> in cutting-edge technology, from
                 virtual reality wonders to AI-powered gadgets.
               </p>
-              <button className="btn rounded-none border-none bg-[#482121] text-[#F0F0F0]">About Us</button>
+              <Link to="/about">
+                <button className="btn rounded-none border-none bg-[#482121] text-[#F0F0F0]">About Us</button>
+              </Link>
             </div>
           </div>
           {/* banner slider */}
