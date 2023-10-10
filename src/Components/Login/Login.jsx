@@ -1,11 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Hook/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 const Login = () => {
     const {googleSignIn, logIn } = useContext(AuthContext)
     const location = useLocation();
     const navigate = useNavigate();
+    const [errorLogin, setErrorLogin] = useState("");
+    const [success, setSuccess] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
 
     // google login
     const handleGoogleLogin = () => {
@@ -23,13 +27,17 @@ const Login = () => {
       const email = form.get('email');
       const password = form.get('password');
       console.log(email, password)
+      setErrorLogin("");
+      setSuccess("");
       logIn(email, password)
       .then(result => {
         console.log(result.user)
-        navigate(location?.state ? location.state : "/")
+        navigate(location?.state ? location.state : "/");
+        setSuccess("User Login Successfully")
       })
       .catch(error =>{
-        console.log(error)
+        console.log(error);
+        setErrorLogin(error.message);
       })
     }
 
@@ -64,18 +72,32 @@ const Login = () => {
                         Password
                       </span>
                     </label>
-                    <input
-                      type="password"
-                      name="password"
-                      placeholder="password"
-                      className="input input-bordered bg-transparent border-2 border-white rounded-[100px]"
-                      required
-                    />
+                    <div className="relative">
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        name="password"
+                        placeholder="password"
+                        className="input input-bordered w-full bg-transparent border-2 border-white rounded-[100px]"
+                        required
+                      />
+                      <span
+                        className="absolute top-4 right-3"
+                        onClick={() => setShowPassword(!showPassword)}
+                      >
+                        {showPassword ? (
+                          <FaRegEyeSlash></FaRegEyeSlash>
+                        ) : (
+                          <FaRegEye></FaRegEye>
+                        )}
+                      </span>
+                    </div>
                   </div>
+                  {errorLogin && (
+                    <p className="text-red-800">{errorLogin}</p>
+                  )}
+                  {success && <p className="text-green-800">{success}</p>}
                   <div className="form-control mt-6">
-                    <button
-                      className="btn text-center rounded-[100px] bg-[#482121] border-none mb-3 text-[#F0F0F0]"
-                    >
+                    <button className="btn text-center rounded-[100px] bg-[#482121] border-none mb-3 text-[#F0F0F0]">
                       Login
                     </button>
                     <button

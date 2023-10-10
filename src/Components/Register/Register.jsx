@@ -1,10 +1,17 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Hook/AuthProvider";
 import { Link } from "react-router-dom";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+ import { ToastContainer, toast } from "react-toastify";
+ import "react-toastify/dist/ReactToastify.css";
+  
 
 const Register = () => {
     
      const { googleSignIn, signUp } = useContext(AuthContext);
+     const [errorRegister, setErrorRegister] = useState("");
+     const [success, setSuccess] = useState("");
+     const [showPassword, setShowPassword] = useState(false)
 
      // google login
      const handleGoogleRegister = () => {
@@ -16,18 +23,28 @@ const Register = () => {
      // email, password register
 
      const handleRegister = (e) => {
+      
        e.preventDefault();
        const form = new FormData(e.currentTarget);
        const name = form.get('name');
        const email = form.get('email');
        const password = form.get('password')
        console.log(name, email, password);
+       setErrorRegister("");
+       setSuccess("");
+       if(password.length < 6){
+        setErrorRegister("Password should be at least 6 characters")
+        return;
+       }
+       
        signUp(email, password)
        .then(result => {
         console.log(result.user)
+        setSuccess(toast("User create successfully"));
        })
        .catch(error => {
-        console.log(error)
+        console.log(error);
+        setErrorRegister(error.message)
        })
      };
 
@@ -37,6 +54,7 @@ const Register = () => {
           <h1 className="text-center text-4xl text-[#066163] font-bold my-8">
             Please Register
           </h1>
+          <ToastContainer />
 
           <div>
             <div className=" min-h-screen ">
@@ -77,14 +95,33 @@ const Register = () => {
                           Password
                         </span>
                       </label>
-                      <input
-                        type="password"
-                        name="password"
-                        placeholder="password"
-                        className="input input-bordered bg-transparent border-2 border-white rounded-[100px]"
-                        required
-                      />
+                      <div className="relative">
+                        <input
+                          type={showPassword ? "text" : "password"}
+                          name="password"
+                          placeholder="password"
+                          className="input input-bordered w-full bg-transparent border-2 border-white rounded-[100px]"
+                          required
+                        />
+                        <span
+                          className="absolute top-4 right-3"
+                          onClick={() => setShowPassword(!showPassword)}
+                        >
+                          {showPassword ? (
+                            <FaRegEyeSlash></FaRegEyeSlash>
+                          ) : (
+                            <FaRegEye></FaRegEye>
+                          )}
+                        </span>
+                      </div>
                     </div>
+                    {errorRegister && (
+                      <p className="text-red-800">{errorRegister}</p>
+                    )}
+                    {
+                      success && success
+                    }
+
                     <div className="form-control mt-6">
                       <button className="btn text-center rounded-[100px] bg-[#482121] border-none mb-3 text-[#F0F0F0]">
                         Register
