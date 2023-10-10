@@ -33,7 +33,7 @@ const Login = () => {
       .then(result => {
         console.log(result.user)
         navigate(location?.state ? location.state : "/");
-        setSuccess("User Login Successfully")
+        setSuccess("User Login successfully")
       })
       .catch(error =>{
         console.log(error);
@@ -92,9 +92,7 @@ const Login = () => {
                       </span>
                     </div>
                   </div>
-                  {errorLogin && (
-                    <p className="text-red-800">{errorLogin}</p>
-                  )}
+                  {errorLogin && <p className="text-red-800">{errorLogin}</p>}
                   {success && <p className="text-green-800">{success}</p>}
                   <div className="form-control mt-6">
                     <button className="btn text-center rounded-[100px] bg-[#482121] border-none mb-3 text-[#F0F0F0]">
@@ -102,9 +100,9 @@ const Login = () => {
                     </button>
                     <button
                       onClick={handleGoogleLogin}
-                      className="btn btn-primary "
+                      className="btn text-center rounded-[100px] bg-[#482121] border-none mb-3 text-[#F0F0F0] "
                     >
-                      google
+                      Login with Google
                     </button>
                   </div>
                   <div>

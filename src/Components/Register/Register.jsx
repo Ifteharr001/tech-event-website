@@ -8,7 +8,8 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 const Register = () => {
     
-     const { googleSignIn, signUp } = useContext(AuthContext);
+     const { googleSignIn, signUp } =
+       useContext(AuthContext);
      const [errorRegister, setErrorRegister] = useState("");
      const [success, setSuccess] = useState("");
      const [showPassword, setShowPassword] = useState(false)
@@ -115,12 +116,23 @@ const Register = () => {
                         </span>
                       </div>
                     </div>
+                    <div className="form-control text-white">
+                      <label className="label text-white">
+                        <span className="label-text text-white font-bold">
+                          Photo URL
+                        </span>
+                      </label>
+                      <input
+                        type="text"
+                        name="photo"
+                        placeholder="photo URL"
+                        className="input input-bordered bg-transparent border-2 border-white rounded-[100px]"
+                      />
+                    </div>
                     {errorRegister && (
                       <p className="text-red-800">{errorRegister}</p>
                     )}
-                    {
-                      success && success
-                    }
+                    {success && success}
 
                     <div className="form-control mt-6">
                       <button className="btn text-center rounded-[100px] bg-[#482121] border-none mb-3 text-[#F0F0F0]">
@@ -128,9 +140,9 @@ const Register = () => {
                       </button>
                       <button
                         onClick={handleGoogleRegister}
-                        className="btn btn-primary "
+                        className="btn text-center rounded-[100px] bg-[#482121] border-none mb-3 text-[#F0F0F0]"
                       >
-                        google
+                        Register with Google
                       </button>
                     </div>
                     <div>
