@@ -10,7 +10,7 @@ const Home = () => {
         <Services></Services>
         <AboutUs></AboutUs>
         <div>
-          <h2 className="text-center text-5xl font-bold mt-12 text-[#066163]">
+          <h2 className="text-center text-4xl md:text-5xl font-bold mt-12 text-[#066163]">
             Our Team Member
           </h2>
           <Team></Team>
