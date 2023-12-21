@@ -80,6 +80,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
+        
         {user ? (
           <button onClick={handleLogOut} className="btn bg-[#482121] border-none rounded-none text-[#F0F0F0]">
             Sign Out
